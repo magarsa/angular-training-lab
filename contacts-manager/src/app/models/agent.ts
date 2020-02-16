@@ -5,7 +5,7 @@ export class Agent {
     lastName: string;
     email: string;
     phone: number;
-    branch: Branch;
+    // branch: Branch;
     active: boolean;
 
     constructor(init?: Partial<Agent>){

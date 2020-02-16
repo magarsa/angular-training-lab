@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { ServiceResponse } from '../models/serviceResponse';
 import { Agent } from '../models/agent';
 import { ErrorResponse } from '../models/errorResponse';
+import * as jsonResponse from '../data/agents.json';
 
 @Injectable({
   providedIn: 'root'
@@ -13,22 +14,12 @@ export class ContactsService {
   mockAgentList: [];
   response: ServiceResponse<Agent[]> = new ServiceResponse(
     {
-      data: [
-        new Agent({
-          firstName: 'Safal',
-          lastName: 'Rana',
-          email:'safal-r@emcins.com',
-          phone:5156667777,
-          active: true
-        })
-      ],
+      data: jsonResponse.data,
       error: new ErrorResponse({
         isError: false,
         errors: []
       })
-    }
-    
-  )
+    });
 
   constructor(protected httpClient: HttpClient) { 
     this.basePath = 'http://localhost:4200/'
