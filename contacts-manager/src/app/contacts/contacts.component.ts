@@ -1,3 +1,4 @@
+import { ContactsService } from './contacts.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contactsService: ContactsService) { }
 
   ngOnInit(): void {
+    this.contactsService.getAgents().subscribe(response => {
+      console.log(response);
+    })
   }
 
 }
