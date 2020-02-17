@@ -1,5 +1,6 @@
+import { MatSidenav } from '@angular/material/sidenav';
 import { ContactsService } from './contacts.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Agent } from '../models/agent';
 
 @Component({
@@ -8,6 +9,11 @@ import { Agent } from '../models/agent';
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements OnInit {
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
+  close() {
+    this.sidenav.close();
+  }
   dataSource: any;
   displayedColumns: string[] = ['firstName', 'lastName','email','phone','active'];
 
